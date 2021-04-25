@@ -5,17 +5,19 @@
 
 **crf定义了两种特征函数：**   
 第一类是定义在$Y$节点上的特征函数，这类特征函数只和当前节点有关，记为：
-$$s_l(y_i,x,i), l=1,2,...,L$$
+$$
+s_l(y_i,x,i), l=1,2,...,L \tag{1}
+$$
 第二类定义在$Y$上下文上的特征函数，这类特征函数只和当前节点和前一个节点有关,记为：
 $$t_k(y_{i-1},y_i,x,i), l=1,2,...,L$$
 
 ### **linear-crf参数化形式**  
 $$
-P(Y|X)=\frac{exp(\sum \limits_{i,k}\lambda_k t_k(y_{i-1},y_i,x,i)+\sum \limits_{i,l}\mu_l s_l(y_i,x,i))}{Z(x)}
+P(Y|X)=\frac{exp(\sum \limits_{i,k}\lambda_k t_k(y_{i-1},y_i,x,i)+\sum \limits_{i,l}\mu_l s_l(y_i,x,i))}{Z(x)}\tag{2}
 $$
 其中，$Z(x)$为规范化因子：
 $$
-Z(x)=\sum \limits_y exp(\sum \limits_{i,k}\lambda_k t_k(y_{i-1},y_i,x,i)+\sum \limits_{i,l}\mu_l s_l(y_i,x,i))
+Z(x)=\sum \limits_y exp(\sum \limits_{i,k}\lambda_k t_k(y_{i-1},y_i,x,i)+\sum \limits_{i,l}\mu_l s_l(y_i,x,i)) \tag{3}
 $$
 
 ### **linear-crf简化形式**  
@@ -26,7 +28,7 @@ f_k(y_{i-1},y_i,x,i)=
 \begin{cases}
 t_k(y_{i-1},y_i,x,i) & k=1,2,\dots,K_1\\
 s_l(y_i,x,i) & k=K_1+l,l=1,2,\dots,K_2 
-\end{cases}
+\end{cases} \tag{4}
 $$
 同时特征函数的权重也可以统一为：
 $$
@@ -34,7 +36,7 @@ w_k=
 \begin{cases}
 \lambda_k & k=1,2,\dots,K_1\\
 \mu_l & k=K_1+l,l=1,2,\dots,K_2
-\end{cases}
+\end{cases} \tag{5}
 $$
 
 ### **linear-crf的三个基本问题**
@@ -43,6 +45,10 @@ $$
 2. 学习
 3. 解码
 ```
+
+### **linear-crf模型学习**
+linear-crf的条件概率分布如$(2)$,条件分布$P(Y|X)$的对数似然如下:
+
 
 # **NN_CRF**
 **NNCRF类**
