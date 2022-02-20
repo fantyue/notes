@@ -12,7 +12,6 @@
 7. (rank model)youtube为什么不适用ctr,播放率等指标作为优化目标，而是使用每次曝光预期播放时间作为优化目标
 
 
-12313
 1. 线上预测时,保存的是softmax对应每个label的权重，使用ann检索和该目标一致，且速度更快。
 2. 使用negtive sampling softmax
 3. 引入代表视频发布时长的特征

@@ -25,8 +25,6 @@ $$
 P(Y=1|x)=\sigma(W_{wide}^T[X,\phi(x)]+W_{deep}^T\alpha^{l_f}+b)
 $$
 
-
-
 # 一些问题
 ## widedeep怎么确定哪些特征放在wide哪些特征放在deep
 wide&deep原论文中表述为：wide侧用于记忆适合输入组合特征，deep侧用于泛化，适合输入非组合特征。  

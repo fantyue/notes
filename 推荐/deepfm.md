@@ -226,5 +226,4 @@ $$
                                               train_op=self.optimizer,
                                               eval_metric_ops=eval_metric_ops)
 
-
 ```
