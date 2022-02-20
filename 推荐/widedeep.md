@@ -5,7 +5,9 @@
 ## 模型结构
 ![wd](../pics/wd.png)
 
-**wide部分**
+**wide部分**  
+
+cross product transformation:
 $$
 \phi_k(x)=\prod\limits_{i=1}^{d}x_i^{c_{ki}}
 $$
@@ -14,9 +16,14 @@ $$
 $$
 \alpha^{l+1}=f(W^{(l)}a^{(l)}+b^{(l)})
 $$
-在wd中,f为relu激活函数
+在wd中,f为relu激活函数，l代表层编号。
 
-## 联合训练
+
+**联合训练**  
+在联合训练模式下输出为:
+$$
+P(Y=1|x)=\sigma(W_{wide}^T[X,\phi(x)]+W_{deep}^T\alpha^{l_f}+b)
+$$
 
 
 
