@@ -51,7 +51,22 @@ $$
 L=\prod \limits_{j=2}^{l_w}(\sigma(x_w^T\theta_{j-1}^w))^{1-d_j^w}(1-\sigma(x_w^T\theta_{j-1}^w))^{d_j^w}
 $$
 对数似然为:
+$$
+log(L)=log \sum \limits_{j=2}^{l_w}({1-d_j^w})(\sigma(x_w^T\theta_{j-1}^w))+{d_j^w}(1-\sigma(x_w^T\theta_{j-1}^w))
+$$
 
+对$\theta_{j-1}^w$和$x^w$的导数如下:
+$$
+
+\begin{aligned}
+\frac{\partial L}{\partial \theta_j^w}&=({1-d_j^w})\frac{\sigma(x_w^T\theta_{j-1}^w)(1-(\sigma(x_w^T\theta_{j-1}^w))}{\sigma(x_w^T\theta_{j-1}^w)}+{d_j^w}\frac{\sigma(x_w^T\theta_{j-1}^w)(1-(\sigma(x_w^T\theta_{j-1}^w))}{1-\sigma(x_w^T\theta_{j-1}^w)} \\
+ &=(1-d_j^w-\sigma(x_w^T\theta_{j-1}^w))x_w  \\
+~\\
+\frac{\partial L}{\partial x^w}&=\sum\limits_2^{l_w}(1-d_j^w-\sigma(x_w^T\theta_{j-1}^w))\theta_{j-1}^w
+
+\end{aligned}
+
+$$
 
 **在分层softmax中，计算一个路径上的最大似然时，只需要计算每个非叶子节点的概率，当走到最后的叶子节点时，不需要再向下走，所以无需计算叶子节点的逻辑回归概率，故而叶子节点没有参数。在路径上似然计算只需要计算非叶子节点**   
 
